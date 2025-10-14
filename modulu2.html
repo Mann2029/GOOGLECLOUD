@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPulse Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Light background */
+        }
+        .purple-gradient {
+            background: linear-gradient(90deg, #6b46c1, #805ad5);
+        }
+        .text-purple-600 { color: #6b46c1; }
+        .bg-purple-600 { background-color: #6b46c1; }
+        .ring-purple-600 { --tw-ring-color: #6b46c1; }
+
+        /* Custom style for AI Learning components */
+        .stat-purple { background-color: #6b46c1; color: white; }
+        .stat-orange { background-color: #F6AD55; color: white; }
+        .stat-green { background-color: #48BB78; color: white; }
+        .text-primary-purple { color: #6b46c1; }
+
+        /* Custom scrollbar for message box */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1; /* slate-300 */
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <svg class="h-7 w-7 text-purple-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span class="text-xl font-bold text-gray-800">EduPulse</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8">
+                    <a href="#" class="px-3 py-2 text-sm font-medium text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-150">
+                        Admin & Operations
+                    </a>
+                    <!-- NOTE: This link is now styled as selected for the new context -->
+                    <a href="#" class="px-3 py-2 text-sm font-medium text-white purple-gradient rounded-lg shadow-md">
+                        AI Learning
+                    </a>
+                    <a href="#" class="px-3 py-2 text-sm font-medium text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-150">
+                        Gamification
+                    </a>
+                    <a href="#" class="px-3 py-2 text-sm font-medium text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-150">
+                        Resources
+                    </a>
+                    <a href="#" class="px-3 py-2 text-sm font-medium text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors duration-150">
+                        Future Tools
+                    </a>
+                </nav>
+
+                <!-- Profile/User Icon (Mock) -->
+                <div class="flex items-center">
+                    <div class="ml-3 relative">
+                        <button type="button" class="bg-gray-100 p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="pb-6">
+            <h1 class="text-3xl font-bold text-gray-900">AI-Powered Learning</h1>
+            <p class="text-sm text-gray-500 mt-1">Personalized adaptive learning for every student</p>
+        </div>
+
+        <!-- AI Learning Stats Cards (New Section) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <!-- Stat 1: Learning Pace -->
+            <div class="p-4 rounded-xl shadow-lg border-l-4 stat-purple">
+                <p class="text-sm font-medium opacity-80">Learning Pace</p>
+                <p class="text-xl font-semibold mt-1">Above Average</p>
+            </div>
+
+            <!-- Stat 2: Completion Rate -->
+            <div class="p-4 rounded-xl shadow-lg border-l-4 stat-orange">
+                <p class="text-sm font-medium opacity-80">Completion Rate</p>
+                <p class="text-3xl font-semibold mt-1">87%</p>
+            </div>
+
+            <!-- Stat 3: Strong Topics -->
+            <div class="p-4 rounded-xl shadow-lg border-l-4 stat-green">
+                <p class="text-sm font-medium opacity-80">Strong Topics</p>
+                <p class="text-3xl font-semibold mt-1">12</p>
+            </div>
+
+            <!-- Stat 4: Topics to Review -->
+            <div class="bg-white p-4 rounded-xl shadow-lg border-l-4 border-red-500">
+                <p class="text-sm font-medium text-gray-500">Topics to Review</p>
+                <p class="text-3xl font-semibold text-red-600 mt-1">3</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Main Feature Modules (Updated to AI Learning Modules) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- LEFT COLUMN (2/3rds width) -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Module 1: Adaptive Learning Engine / Personalized Schedule -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-900 flex items-center">
+                                Adaptive Learning Engine
+                            </h2>
+                            <p class="text-sm text-gray-500 mt-1">AI analyzes your learning pattern and adapts content</p>
+                        </div>
+                        <span class="text-xs font-semibold bg-blue-100 text-blue-600 px-3 py-1 rounded-full">Active</span>
+                    </div>
+
+                    <!-- Learning Profile Bar -->
+                    <div class="mt-6 border-b pb-4">
+                        <h3 class="text-sm font-semibold text-gray-700 mb-2">Your Learning Profile</h3>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <p class="text-xs text-gray-500">Learning Pace</p>
+                                <div class="text-primary-purple font-semibold text-lg flex items-center justify-center">
+                                    <span class="h-2 w-2 mr-1 rounded-full bg-primary-purple"></span> Fast
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Retention Rate</p>
+                                <div class="text-primary-purple font-semibold text-lg flex items-center justify-center">
+                                    <span class="h-2 w-2 mr-1 rounded-full bg-primary-purple"></span> 82%
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Focus Time</p>
+                                <div class="text-primary-purple font-semibold text-lg flex items-center justify-center">
+                                    <span class="h-2 w-2 mr-1 rounded-full bg-primary-purple"></span> 45m
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personalized Schedule -->
+                    <h3 class="text-md font-semibold text-gray-700 mt-4 mb-3">Today's Personalized Schedule</h3>
+
+                    <div class="space-y-3">
+                        <!-- Schedule Item 1 -->
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-gray-800">9:00 AM - Mathematics</span>
+                                <span class="text-xs text-gray-600">Quadratic Equations</span>
+                                <span class="text-xs text-gray-400">Difficulty: Medium</span>
+                            </div>
+                            <svg class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <!-- Schedule Item 2 -->
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-gray-800">10:30 AM - Biology</span>
+                                <span class="text-xs text-gray-600">Photosynthesis</span>
+                                <span class="text-xs text-gray-400">Difficulty: Easy</span>
+                            </div>
+                            <span class="text-xs font-semibold text-blue-600">In Progress</span>
+                        </div>
+                        <!-- Schedule Item 3 -->
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
+                            <div class="flex flex-col">
+                                <span class="text-sm font-bold text-gray-800">2:00 PM - History</span>
+                                <span class="text-xs text-gray-600">World War II</span>
+                                <span class="text-xs text-gray-400">Difficulty: Hard</span>
+                            </div>
+                            <span class="text-xs font-semibold text-gray-400">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3: Personalized AI Feedback -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-semibold text-gray-900">Personalized AI Feedback</h2>
+                    <p class="text-sm text-gray-500 mt-1">Key insights based on your recent activity</p>
+
+                    <div class="mt-4 space-y-4">
+                        <!-- Positive Feedback -->
+                        <div class="flex items-start p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
+                            <svg class="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-gray-800">Great Progress in Mathematics!</p>
+                                <p class="text-sm text-gray-600">You've mastered quadratic equations $20\%$ faster than average. Keep it up!</p>
+                            </div>
+                        </div>
+
+                        <!-- Review Recommendation -->
+                        <div class="flex items-start p-4 bg-orange-50 border-l-4 border-orange-500 rounded-lg">
+                            <svg class="h-6 w-6 text-orange-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-gray-800">Review Recommended: Organic Chemistry</p>
+                                <p class="text-sm text-gray-600">Your last quiz showed some gaps. We've added 3 flashcards to help reinforce concepts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN (1/3rd width) -->
+            <div class="space-y-8 lg:col-span-1">
+                <!-- Module 2: Progress Tracker -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-semibold text-gray-900">Progress Tracker</h2>
+                    <p class="text-sm text-gray-500 mt-1">Your learning journey</p>
+
+                    <div class="mt-6 space-y-4">
+                        <!-- Subject 1: Mathematics -->
+                        <div>
+                            <div class="flex justify-between text-xs text-gray-700">
+                                <span>Mathematics</span>
+                                <span class="font-medium">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                <div class="bg-primary-purple h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <!-- Subject 2: Science -->
+                        <div>
+                            <div class="flex justify-between text-xs text-gray-700">
+                                <span>Science</span>
+                                <span class="font-medium">78%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                <div class="bg-primary-purple h-2 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <!-- Subject 3: English -->
+                        <div>
+                            <div class="flex justify-between text-xs text-gray-700">
+                                <span>English</span>
+                                <span class="font-medium">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                <div class="bg-primary-purple h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- Subject 4: History -->
+                        <div>
+                            <div class="flex justify-between text-xs text-gray-700">
+                                <span>History</span>
+                                <span class="font-medium">67%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                <div class="bg-primary-purple h-2 rounded-full" style="width: 67%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3: Strengths & Gaps -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-semibold text-gray-900">Strengths & Gaps</h2>
+                    <p class="text-sm text-gray-500 mt-1">Skills breakdown</p>
+
+                    <div class="mt-6">
+                        <h3 class="text-sm font-semibold text-gray-700 mb-2 border-b pb-2">Top Strengths</h3>
+                        <div class="space-y-2">
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full">Algebra</span>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full">Literature Analysis</span>
+                            <span class="inline-block bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full">Critical Thinking</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="text-sm font-semibold text-gray-700 mb-2 border-b pb-2">Focus Areas</h3>
+                        <div class="space-y-2">
+                            <span class="inline-block bg-orange-100 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Organic Chemistry</span>
+                            <span class="inline-block bg-orange-100 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Grammar</span>
+                            <span class="inline-block bg-orange-100 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Ancient History</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4: AI Recommendation -->
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-xl font-semibold text-gray-900">AI Recommendation</h2>
+                    <p class="text-sm text-gray-500 mt-1">Based on your learning pattern, I recommend focusing on short, frequent study sessions ($25$ minutes) with $5$-minute breaks.</p>
+                    <button class="w-full mt-4 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-150">
+                        Start Optimized Session
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple JavaScript for basic interactivity (not strictly necessary for this static dashboard,
+        // but included for demonstration of JS integration).
+
+        console.log("EduPulse Dashboard loaded successfully.");
+
+        // Example function to simulate a new message arrival
+        function simulateNewMessage() {
+            const messageContainer = document.querySelector('.custom-scrollbar');
+            if (messageContainer) {
+                const newMessageHTML = `
+                    <div class="border-b pb-4 last:border-b-0 flex justify-between items-start bg-purple-50 p-2 rounded-lg">
+                        <div class="flex flex-col">
+                            <span class="font-medium text-gray-800">New Administrator</span>
+                            <p class="text-sm text-gray-600">Welcome message from new staff!</p>
+                        </div>
+                        <span class="text-xs text-red-500 font-bold">Just now</span>
+                    </div>
+                `;
+                // Prepend the new message
+                messageContainer.insertAdjacentHTML('afterbegin', newMessageHTML);
+                // Update the counter
+                const recentMessagesCard = document.querySelector('.border-purple-500 .text-3xl');
+                if (recentMessagesCard) {
+                    recentMessagesCard.textContent = parseInt(recentMessagesCard.textContent) + 1;
+                }
+            }
+        }
+
+        // Simulating a message arriving 10 seconds after load
+        // setTimeout(simulateNewMessage, 10000);
+    </script>
+</body>
+</html>
